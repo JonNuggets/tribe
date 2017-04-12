@@ -39,7 +39,7 @@ Route::put('admin/tracks/update/{id}', ['as' => 'tracks.update', 'uses' => 'Trac
 /* Albums */
 Route::get('admin/albums', ['as' => 'albums.index', 'uses' => 'AlbumController@index']);
 Route::get('admin/albums/create', ['as' => 'albums.create', 'uses' => 'AlbumController@create']);
-Route::post('admin/albums/post/{id}', ['as' => 'albums.store', 'uses' => 'AlbumController@store']);
+Route::post('admin/albums/post', ['as' => 'albums.store', 'uses' => 'AlbumController@store']);
 Route::get('admin/albums/edit/{id}', ['as' => 'albums.edit', 'uses' => 'AlbumController@edit']);
 Route::put('admin/albums/update/{id}', ['as' => 'albums.update', 'uses' => 'AlbumController@update']);
 
@@ -89,7 +89,7 @@ Route::put('admin/subscription_types/update/{id}', ['as' => 'subscription_types.
 /* Categories */
 Route::get('admin/categories', ['as' => 'categories.index', 'uses' => 'CategoryController@index']);
 Route::get('admin/categories/create', ['as' => 'categories.create', 'uses' => 'CategoryController@create']);
-Route::post('admin/categories/post/{id}', ['as' => 'categories.store', 'uses' => 'CategoryController@store']);
+Route::post('admin/categories/post', ['as' => 'categories.store', 'uses' => 'CategoryController@store']);
 Route::get('admin/categories/edit/{id}', ['as' => 'categories.edit', 'uses' => 'CategoryController@edit']);
 Route::put('admin/categories/update/{id}', ['as' => 'categories.update', 'uses' => 'CategoryController@update']);
 

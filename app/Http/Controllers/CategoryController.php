@@ -16,8 +16,7 @@ use Illuminate\Session\Store;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Profile;
-
-// use App\Http\Requests\StoreAuthorRequest;
+use App\Http\Requests\StoreCategoryRequest;
 
 use DB;
 
@@ -30,6 +29,17 @@ class CategoryController extends Controller
     }
 
     public function create() {
-    	return ;
+    	return view('admin.categories.create');
+    }
+
+    public function store(StoreCategoryRequest $request) {
+		$slug = str_slug($request->input('name'));
+
+		$category = new Category($request->all());
+		$category->slug = $slug;
+		$category->save();
+
+		// session()->flash('flash_message', 'La nouvelle entité a été crée avec succès.');
+		return redirect('admin/categories');
     }
 }
