@@ -96,7 +96,7 @@ Route::put('admin/categories/update/{id}', ['as' => 'categories.update', 'uses' 
 /* Trask Types */
 Route::get('admin/track_types', ['as' => 'track_types.index', 'uses' => 'TrackTypeController@index']);
 Route::get('admin/track_types/create', ['as' => 'track_types.create', 'uses' => 'TrackTypeController@create']);
-Route::post('admin/track_types/post/{id}', ['as' => 'track_types.store', 'uses' => 'TrackTypeController@store']);
+Route::post('admin/track_types/post', ['as' => 'track_types.store', 'uses' => 'TrackTypeController@store']);
 Route::get('admin/track_types/edit/{id}', ['as' => 'track_types.edit', 'uses' => 'TrackTypeController@edit']);
 Route::put('admin/track_types/update/{id}', ['as' => 'track_types.update', 'uses' => 'TrackTypeController@update']);
 

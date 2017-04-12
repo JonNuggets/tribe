@@ -16,6 +16,7 @@ use Illuminate\Session\Store;
 use App\Models\TrackType;
 use App\Models\User;
 use App\Models\Profile;
+use App\Http\Requests\StoreTrackTypeRequest;
 
 // use App\Http\Requests\StoreAuthorRequest;
 
@@ -30,6 +31,17 @@ class TrackTypeController extends Controller
     }
 
     public function create() {
-    	return ;
+		return view('admin.track_types.create');
+    }
+
+    public function store(StoreTrackTypeRequest $request) {
+		$slug = str_slug($request->input('name'));
+
+		$trackType = new TrackType($request->all());
+		$trackType->slug = $slug;
+		$trackType->save();
+
+		// session()->flash('flash_message', 'La nouvelle entité a été crée avec succès.');
+		return redirect('admin/track_types');
     }
 }
