@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 
-class StoreTrackTypeRequest extends Request
+class UpdateTrackTypeRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,7 @@ class StoreTrackTypeRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:track_types,name'
+            'name' => 'required'
         ];
     }
 }

@@ -33,8 +33,7 @@
               <div class="ln_solid"></div>
               <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
-                  {!! Form::submit( 'Annuler', array( 'class' => 'btn btn-primary', 'id' => 'cancel' ) ) !!}
-                  {!! Form::submit( 'Enregistrer', array( 'class' => 'btn btn-success', 'id' => 'send' ) ) !!}
+                  {!! Form::submit( 'Enregistrer', array( 'class' => 'btn btn-success',  'name' => 'action', 'value' => 'save' ) ) !!}
                 </div>
               </div>
             {{ Form::close() }}

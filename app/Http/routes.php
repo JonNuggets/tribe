@@ -100,4 +100,5 @@ Route::get('admin/track_types/create', ['as' => 'track_types.create', 'uses' => 
 Route::post('admin/track_types/post', ['as' => 'track_types.store', 'uses' => 'TrackTypeController@store']);
 Route::get('admin/track_types/edit/{id}', ['as' => 'track_types.edit', 'uses' => 'TrackTypeController@edit']);
 Route::put('admin/track_types/update/{id}', ['as' => 'track_types.update', 'uses' => 'TrackTypeController@update']);
+Route::get('admin/track_types/delete/{id}', ['as' => 'track_types.destroy', 'uses' => 'TrackTypeController@destroy']);
 

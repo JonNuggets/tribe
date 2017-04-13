@@ -24,3 +24,4 @@
 
 <!-- Custom Theme Scripts -->
 {!! HTML::script('gentelella/build/js/custom.min.js') !!}
+{!! HTML::script('custom/js/custom.js') !!}

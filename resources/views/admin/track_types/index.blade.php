@@ -42,7 +42,7 @@
                   <td>{{ $track_type->name }}</td>
                   <td>
                     <a href="{{ url( 'admin/track_types/edit/' . Crypt::encrypt($track_type->id)), ['class' => 'btn btn-xs-tribe btn-default'] }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url( 'admin/track_types/edit/' . Crypt::encrypt($track_type->id)) }}" class="btn btn-xs-tribe btn-default" data-button-type="delete"><i class="fa fa-trash"></i></a>
+                    <a href="{{ url( 'admin/track_types/delete/' . Crypt::encrypt($track_type->id)) }}" class="btn btn-xs-tribe btn-default" onclick="return confirmDelete()"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

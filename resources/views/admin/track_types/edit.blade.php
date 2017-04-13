@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-  Tribe | Gestion des catégories
+  Tribe | Gestion des types de piste
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>Modifier une catégorie</small></h3>
+        <h3>Modifier un type de piste</small></h3>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
         <div class="x_panel">
 
           <div class="x_content">
-          {{ Form::model($oldCategory, array( 'route' => array('categories.update', Crypt::encrypt($oldCategory->id)), 'class' => 'form-horizontal form-label-left', 'method' => 'PUT' ) ) }}
+          {{ Form::model($oldTrackType, array( 'route' => array('track_types.update', Crypt::encrypt($oldTrackType->id)), 'class' => 'form-horizontal form-label-left', 'method' => 'PUT' ) ) }}
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Libellé <span class="required">*</span>
                 </label>
