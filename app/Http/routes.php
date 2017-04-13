@@ -92,6 +92,7 @@ Route::get('admin/categories/create', ['as' => 'categories.create', 'uses' => 'C
 Route::post('admin/categories/post', ['as' => 'categories.store', 'uses' => 'CategoryController@store']);
 Route::get('admin/categories/edit/{id}', ['as' => 'categories.edit', 'uses' => 'CategoryController@edit']);
 Route::put('admin/categories/update/{id}', ['as' => 'categories.update', 'uses' => 'CategoryController@update']);
+Route::get('admin/categories/delete/{id}', ['as' => 'categories.destroy', 'uses' => 'CategoryController@destroy']);
 
 /* Trask Types */
 Route::get('admin/track_types', ['as' => 'track_types.index', 'uses' => 'TrackTypeController@index']);

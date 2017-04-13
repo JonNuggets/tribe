@@ -54,16 +54,15 @@
           <li>
             <a>Abonnements <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="{{ URL::route('subscriptions.index') }}">Liste des abonnements</a></li>
-              <li><a href="{{ URL::route('subscriptions.create') }}">Ajouter un abonnement</a></li>
+              <li><a href="{{ URL::route('subscriptions.index') }}">Abonnements</a></li>
               <li><a href="{{ URL::route('subscription_types.index') }}">Types d'abonnement</a></li>
             </ul>
           </li>
-          <li>
+          <li {{ ( Request::is('admin/track_types/*') || Request::is('admin/categories/*') ) ? 'class=active' : '' }}>
             <a> Musique <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-              <li><a href="{{ URL::route('categories.index') }}">Catégories</a></li>
-              <li><a href="{{ URL::route('track_types.index') }}">Types de pistes</a></li>
+            <ul class="nav child_menu" {{ ( Request::is('admin/track_types/*') || Request::is('admin/categories/*') ) ? 'style=display:block;' : '' }}>
+              <li {{ ( Request::is('admin/categories/*') ) ? 'class=current-page' : '' }}><a href="{{ URL::route('categories.index') }}">Catégories</a></li>
+              <li {{ ( Request::is('admin/track_types/*') ) ? 'class=current-page' : '' }}><a href="{{ URL::route('track_types.index') }}">Types de pistes</a></li>
             </ul>
           </li>
           <!-- <li>

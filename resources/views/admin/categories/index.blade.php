@@ -41,9 +41,9 @@
                 <tr>
                   <td>{{ $category->name }}</td>
                   <td>
-                    <a href="{{ url( 'admin/categories/edit/' . Crypt::encrypt($category->id)), ['class' => 'btn btn-xs-tribe btn-default'] }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url( 'admin/categories/edit/' . Crypt::encrypt($category->id)) }}" class="btn btn-xs-tribe btn-default" data-button-type="delete"><i class="fa fa-trash"></i></a>
-                  </td>
+                    <a href="{{ url( 'admin/categories/edit/' . Crypt::encrypt($category->id)) }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
+                    <a href="{{ url( 'admin/categories/delete/' . Crypt::encrypt($category->id)) }}" class="btn btn-xs-tribe btn-default" onclick="return confirmDelete()"><i class="fa fa-trash"></i></a>
+                   </td>
                 </tr>
                 @endforeach
               </tbody>

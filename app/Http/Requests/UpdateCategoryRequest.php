@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 
-class StoreCategoryRequest extends Request
+class UpdateCategoryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,7 @@ class StoreCategoryRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:categories,name'
+            'name' => 'required'
         ];
     }
 }
