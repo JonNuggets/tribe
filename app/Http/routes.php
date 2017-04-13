@@ -82,9 +82,10 @@ Route::put('admin/subscriptions/update/{id}', ['as' => 'subscriptions.update', '
 /* Subscription Types */
 Route::get('admin/subscription_types', ['as' => 'subscription_types.index', 'uses' => 'SubscriptionTypeController@index']);
 Route::get('admin/subscription_types/create', ['as' => 'subscription_types.create', 'uses' => 'SubscriptionTypeController@create']);
-Route::post('admin/subscription_types/post/{id}', ['as' => 'subscription_types.store', 'uses' => 'SubscriptionTypeController@store']);
+Route::post('admin/subscription_types/post', ['as' => 'subscription_types.store', 'uses' => 'SubscriptionTypeController@store']);
 Route::get('admin/subscription_types/edit/{id}', ['as' => 'subscription_types.edit', 'uses' => 'SubscriptionTypeController@edit']);
 Route::put('admin/subscription_types/update/{id}', ['as' => 'subscription_types.update', 'uses' => 'SubscriptionTypeController@update']);
+Route::get('admin/subscription_types/delete/{id}', ['as' => 'subscription_types.destroy', 'uses' => 'SubscriptionTypeController@destroy']);
 
 /* Categories */
 Route::get('admin/categories', ['as' => 'categories.index', 'uses' => 'CategoryController@index']);

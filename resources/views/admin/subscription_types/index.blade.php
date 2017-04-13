@@ -33,7 +33,6 @@
                 <tr>
                   <th>Libellé</th>
                   <th>Description</th>
-                  <th>Devise</th>
                   <th>Prix</th>
                   <th>Actions</th>
                 </tr>
@@ -44,11 +43,10 @@
                 <tr>
                   <td>{{ $subscription_type->name }}</td>
                   <td>{{ $subscription_type->description }}</td>
-                  <td>{{ $subscription_type->currency }}</td>
                   <td>{{ $subscription_type->price }}</td>
                   <td>
                     <a href="{{ url( 'admin/subscription_types/edit/' . Crypt::encrypt($subscription_type->id)), ['class' => 'btn btn-xs-tribe btn-default'] }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url( 'admin/subscription_types/edit/' . Crypt::encrypt($subscription_type->id)) }}" class="btn btn-xs-tribe btn-default" data-button-type="delete"><i class="fa fa-trash"></i></a>
+                    <a href="{{ url( 'admin/subscription_types/delete/' . Crypt::encrypt($subscription_type->id)) }}" class="btn btn-xs-tribe btn-default" onclick="return confirmDelete()"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

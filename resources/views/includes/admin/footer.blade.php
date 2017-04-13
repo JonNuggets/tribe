@@ -25,3 +25,5 @@
 <!-- Custom Theme Scripts -->
 {!! HTML::script('gentelella/build/js/custom.min.js') !!}
 {!! HTML::script('custom/js/custom.js') !!}
+{!! HTML::script('custom/js/ckeditor/ckeditor.js') !!}
+{!! HTML::script('custom/js/ckeditor/config.js') !!}
