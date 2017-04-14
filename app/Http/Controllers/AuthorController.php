@@ -66,6 +66,9 @@ class AuthorController extends Controller
                 case "Enregistrer":
                     try {
                     	$author->slug = str_slug($request->nickname, '-');
+                        if (!isset($request->statut)) {
+                            $author->statut = 0;
+                        }
                         $author->update($request->all());
                         session()->flash('flash_message', "L'entité a été mise à jour avec succès.");
                     }
