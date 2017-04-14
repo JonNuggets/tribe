@@ -35,8 +35,6 @@ class UpdateAuthorRequest extends Request
         return [
             'firstname' => 'required',
             'lastname' => 'required',
-            'nickname' => 'required',
-            'statut' => 'required',
-        ];
+            'nickname' => 'required'        ];
     }
 }
