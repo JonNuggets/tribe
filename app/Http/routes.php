@@ -53,9 +53,10 @@ Route::put('admin/videos/update/{id}', ['as' => 'videos.update', 'uses' => 'Vide
 /* Authors */
 Route::get('admin/authors', ['as' => 'authors.index', 'uses' => 'AuthorController@index']);
 Route::get('admin/authors/create', ['as' => 'authors.create', 'uses' => 'AuthorController@create']);
-Route::post('admin/authors/post/{id}', ['as' => 'authors.store', 'uses' => 'AuthorController@store']);
+Route::post('admin/authors/post', ['as' => 'authors.store', 'uses' => 'AuthorController@store']);
 Route::get('admin/authors/edit/{id}', ['as' => 'authors.edit', 'uses' => 'AuthorController@edit']);
 Route::put('admin/authors/update/{id}', ['as' => 'authors.update', 'uses' => 'AuthorController@update']);
+Route::get('admin/authors/delete/{id}', ['as' => 'authors.destroy', 'uses' => 'AuthorController@destroy']);
 
 /* Users */
 Route::get('admin/users', ['as' => 'users.index', 'uses' => 'UserController@index']);

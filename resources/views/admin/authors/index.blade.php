@@ -48,7 +48,7 @@
                   <td>{{ $author->statut }}</td>
                   <td>
                     <a href="{{ url( 'admin/authors/edit/' . Crypt::encrypt($author->id)), ['class' => 'btn btn-xs-tribe btn-default'] }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url( 'admin/authors/edit/' . Crypt::encrypt($author->id)) }}" class="btn btn-xs-tribe btn-default" data-button-type="delete"><i class="fa fa-trash"></i></a>
+                    <a href="{{ url( 'admin/authors/delete/' . Crypt::encrypt($author->id)) }}" class="btn btn-xs-tribe btn-default" onclick="return confirmDelete()"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
