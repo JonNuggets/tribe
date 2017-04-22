@@ -122,11 +122,10 @@ class TrackController extends Controller
 
 						$track->update($request->all());
 						$track->slug = str_slug($request->title);
+						$author = Author::find($request->author_id);
 
-						if ( Input::hasFile('track') && Input::hasFile('cover') ) {
-							if (Input::file('track')->isValid() && Input::file('cover')->isValid()) {
-
-								$author = Author::find($request->author_id);
+						if ( Input::hasFile('track') || Input::hasFile('cover') ) {
+							if ( null !== Input::file('cover') && Input::file('cover')->isValid()) {
 
 								/* Photo */
 								$photo = new Photo();
@@ -138,7 +137,9 @@ class TrackController extends Controller
 								$photo->url = $url;
 								$photo->save();
 								$track->photo()->associate($photo);
+							}
 
+							if (null !== Input::file('track') && Input::file('track')->isValid()) {
 								/* Track */
 								if (isset($request->album_id)) {
 									$album = Album::find($request->album_id);
@@ -151,6 +152,7 @@ class TrackController extends Controller
 								$fileInName = Input::file('track')->getClientOriginalName();
 								$success = Input::file('track')->move($destinationPath, $fileInName);
 								$url = pathinfo ( $success, PATHINFO_DIRNAME ).'/'.$fileInName;
+							}
 
 								if ($success) {
 									$url = pathinfo ( $success, PATHINFO_DIRNAME ).'/'.$fileInName;
@@ -166,8 +168,9 @@ class TrackController extends Controller
 					        	session()->flash('flash_message_warning', "Le fichier que vous essayez de déposer est corrompu.");
 					        	return redirect('admin/tracks');
 					        }
-						}
+						
                         session()->flash('flash_message', "L'entité a été mise à jour avec succès.");
+
                     }
                     catch(QueryException $e){
                         session()->flash('flash_message_warning', "Le code pour l'entité existe déjà dans le système.");

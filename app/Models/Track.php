@@ -39,6 +39,22 @@ class Track extends Model
     }
 
     /**
+     * Get the phone record associated with the user.
+     */
+    public function author()
+    {
+        return $this->belongsTo('App\Models\Author', 'author_id');
+    }
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function album()
+    {
+        return $this->belongsTo('App\Models\Album', 'album_id');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function rates()

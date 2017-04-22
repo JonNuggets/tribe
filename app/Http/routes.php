@@ -105,3 +105,8 @@ Route::get('admin/track_types/edit/{id}', ['as' => 'track_types.edit', 'uses' =>
 Route::put('admin/track_types/update/{id}', ['as' => 'track_types.update', 'uses' => 'TrackTypeController@update']);
 Route::get('admin/track_types/delete/{id}', ['as' => 'track_types.destroy', 'uses' => 'TrackTypeController@destroy']);
 
+
+/* API REST */
+Route::group(array('prefix' => 'api/v1'), function() {
+        Route::resource('tracks', 'Api\v1\TrackController');
+});

@@ -31,4 +31,13 @@ class Album extends Model
         return $this->belongsTo('App\Models\Photo', 'photo_id');
     }
 
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tracks()
+    {
+        return $this->hasMany('App\Models\Track');
+    }
 }

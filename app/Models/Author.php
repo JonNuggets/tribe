@@ -22,4 +22,14 @@ class Author extends Model
      */
     protected $fillable = ['firstname', 'lastname', 'nickname', 'slug', 'photo_id', 'statut', 'created_at', 'updated_at'];
 
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tracks()
+    {
+        return $this->hasMany('App\Models\Track');
+    }
+
 }
