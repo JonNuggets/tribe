@@ -7,7 +7,9 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "laravelcollective/html": "5.2.*"
+        "laravelcollective/html": "5.2.*",
+        "james-heinrich/getid3": "^1.9",
+        "cwhite92/b2-sdk-php": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

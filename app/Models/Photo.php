@@ -22,4 +22,23 @@ class Photo extends Model
      */
     protected $fillable = ['url', 'name', 'size', 'created_at', 'updated_at', 'extension', 'dimension_height', 'dimension_width'];
 
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tracks()
+    {
+        return $this->hasMany('App\Models\Track');
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function albums()
+    {
+        return $this->hasMany('App\Models\Album');
+    }
 }

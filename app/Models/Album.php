@@ -23,4 +23,12 @@ class Album extends Model
      */
     protected $fillable = ['title', 'slug', 'year', 'author_id', 'photo_id', 'published', 'statut', 'created_at', 'updated_at'];
 
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo', 'photo_id');
+    }
+
 }

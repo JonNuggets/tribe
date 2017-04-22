@@ -29,6 +29,15 @@ class Track extends Model
      */
     protected $fillable = ['title', 'slug', 'duration', 'track_type_id', 'author_id', 'album_id', 'photo_id', 'url', 'year', 'hits', 'statut', 'created_at', 'updated_at'];
 
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo', 'photo_id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

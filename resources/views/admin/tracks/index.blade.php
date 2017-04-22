@@ -57,13 +57,13 @@
                 <tr>
                   <td>{{ $track->title }}</td>
                   <td>{{ $author->nickname }}</td>
-                  <td>{{ $albumTitle }}</td>
                   <td>{{ $trackType->name }}</td>
+                  <td>{{ $albumTitle }}</td>
                   <td>{{ $track->statut }}</td>
                   <td>{{ $track->updated_at }}</td>
                   <td>
                     <a href="{{ url( 'admin/tracks/edit/' . Crypt::encrypt($track->id)), ['class' => 'btn btn-xs-tribe btn-default'] }}" class="btn btn-xs-tribe btn-default"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url( 'admin/tracks/edit/' . Crypt::encrypt($track->id)) }}" class="btn btn-xs-tribe btn-default" data-button-type="delete"><i class="fa fa-trash"></i></a>
+                    <a href="{{ url( 'admin/tracks/delete/' . Crypt::encrypt($track->id)) }}" class="btn btn-xs-tribe btn-default" onclick="return confirmDelete()"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach

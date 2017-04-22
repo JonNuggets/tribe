@@ -32,9 +32,10 @@ Route::get('admin/dashboard', ['as' => 'admin.dashboard', function () {
 /* Tracks */
 Route::get('admin/tracks', ['as' => 'tracks.index', 'uses' => 'TrackController@index']);
 Route::get('admin/tracks/create', ['as' => 'tracks.create', 'uses' => 'TrackController@create']);
-Route::post('admin/tracks/post/{id}', ['as' => 'tracks.store', 'uses' => 'TrackController@store']);
+Route::post('admin/tracks/post', ['as' => 'tracks.store', 'uses' => 'TrackController@store']);
 Route::get('admin/tracks/edit/{id}', ['as' => 'tracks.edit', 'uses' => 'TrackController@edit']);
 Route::put('admin/tracks/update/{id}', ['as' => 'tracks.update', 'uses' => 'TrackController@update']);
+Route::get('admin/tracks/delete/{id}', ['as' => 'tracks.destroy', 'uses' => 'TrackController@destroy']);
 
 /* Albums */
 Route::get('admin/albums', ['as' => 'albums.index', 'uses' => 'AlbumController@index']);
