@@ -37,7 +37,7 @@ class TrackController extends Controller
 	public function create() {
 		$authors = Author::pluck('nickname', 'id');
 		$trackTypes = TrackType::pluck('name', 'id');
-		$albums = Album::pluck('slug', 'id');
+		$albums = Album::pluck('title', 'id');
 		return view('admin.tracks.create', compact('authors', 'trackTypes', 'albums'));
 	}
 

@@ -11,11 +11,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Album;
 use App\Models\Author;
 use App\Models\Photo;
-use App\Models\Track;
 
-class TrackController extends Controller
+class AlbumController extends Controller
 {
-    /*
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -26,33 +25,23 @@ class TrackController extends Controller
             $statusCode = 200;
             $response = [];
 
-            $tracks = Track::all();
+            $albums = Album::all();
 
-            foreach($tracks as $track){
+            foreach($albums as $album){
 
-                $author = $track->author;
-                $album = $track->album;
-                $albumPhoto = (!isset($album)) ? null : $album->photo;
-                $photoTrack = $track->photo;
+                $author = $album->author;
+                $photo = $album->photo;
 
-                $response['tracks'][] = [
-                    'id' => $track->id,
-                    'title' => $track->title,
-                    'duration' => $track->duration,
-                    'year' => $track->year,
-                    'hits' => $track->hits,
-                    'url' => $track->url,
+                $response['albums'][] = [
+                    'id' => $album->id,
+                    'title' => $album->title,
+                    'year' => $album->year,
                     'author' => [
                         'id' => $author->id,
                         'nickname' => $author->nickname,
                         // 'photo' => $author->image,
                         ],
-                    'album' => (!isset($album)) ? null : [
-                        'id' => $album->id,
-                        'title' => $album->title,
-                        'cover' => $albumPhoto->url,
-                        ],
-                    'cover' => $photoTrack->url,
+                    'cover' => $photo->url,
                 ];
             }
 
@@ -74,12 +63,34 @@ class TrackController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -96,4 +107,14 @@ class TrackController extends Controller
         //
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
