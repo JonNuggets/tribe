@@ -117,7 +117,8 @@
               <div class="ln_solid"></div>
               <div class="form-group">
                 <div class="col-md-6 col-md-offset-3">
-                  {!! Form::submit( 'Enregistrer', array( 'class' => 'btn btn-success',  'name' => 'action', 'value' => 'save' ) ) !!}
+                  {!! Form::submit( 'Supprimer', array( 'class' => 'btn btn-default', 'onclick' => 'return confirmDelete()', 'name' => 'action', 'value' => 'delete' ) ) !!}
+                  {!! Form::submit( 'Enregistrer', array( 'class' => 'btn btn-success', 'name' => 'action', 'value' => 'update' ) ) !!}
                 </div>
               </div>
             {{ Form::close() }}

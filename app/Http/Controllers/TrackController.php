@@ -111,22 +111,19 @@ class TrackController extends Controller
         $decryptedId = Crypt::decrypt($id);
         $action = $request->action;
         $track = Track::findOrFail($decryptedId);
-
-
+        
         $oldTrack = $track;
 
         if ($action){
             switch ($action) {
                 case "Enregistrer":
                     try {
-
 						$track->update($request->all());
 						$track->slug = str_slug($request->title);
 						$author = Author::find($request->author_id);
 
 						if ( Input::hasFile('track') || Input::hasFile('cover') ) {
 							if ( null !== Input::file('cover') && Input::file('cover')->isValid()) {
-
 								/* Photo */
 								$photo = new Photo();
 								
@@ -152,29 +149,26 @@ class TrackController extends Controller
 								$fileInName = Input::file('track')->getClientOriginalName();
 								$success = Input::file('track')->move($destinationPath, $fileInName);
 								$url = pathinfo ( $success, PATHINFO_DIRNAME ).'/'.$fileInName;
+								$track->url = $url;
 							}
 
-								if ($success) {
-									$url = pathinfo ( $success, PATHINFO_DIRNAME ).'/'.$fileInName;
-									$track->url = $url;
-									$track->save();
-								}
-					            else {
-					            	session()->flash('flash_message_warning', "Le fichier que vous essayez de déposer est corrompu.");
-					        		return redirect('admin/tracks');
-					            }
-					        }
-					        else {
-					        	session()->flash('flash_message_warning', "Le fichier que vous essayez de déposer est corrompu.");
-					        	return redirect('admin/tracks');
-					        }
-						
-                        session()->flash('flash_message', "L'entité a été mise à jour avec succès.");
-
-                    }
-                    catch(QueryException $e){
-                        session()->flash('flash_message_warning', "Le code pour l'entité existe déjà dans le système.");
-                    }
+							if ($success) {
+								$track->save();
+							}
+							else {
+								session()->flash('flash_message_warning', "Le fichier que vous essayez de déposer est corrompu.");
+								return redirect('admin/tracks');
+							}
+						}
+						else {
+							session()->flash('flash_message_warning', "Le fichier que vous essayez de déposer est corrompu.");
+							return redirect('admin/tracks');
+						}
+						session()->flash('flash_message', "L'entité a été mise à jour avec succès.");
+					}
+					catch(QueryException $e){
+						session()->flash('flash_message_warning', "Le code pour l'entité existe déjà dans le système.");
+					}
                     break;
                 case "Annuler":
                     break;
@@ -185,5 +179,15 @@ class TrackController extends Controller
             }
             return redirect('admin/tracks');
         }
+    }
+
+    public function destroy($id)
+    {
+        $decryptedId = Crypt::decrypt($id);
+        $track = Track::findOrFail($decryptedId);
+        $track->delete();
+
+        session()->flash('flash_message', "La categorie a été supprimée avec succès.");
+        return redirect('admin/tracks');
     }
 }

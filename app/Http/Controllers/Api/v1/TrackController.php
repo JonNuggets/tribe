@@ -15,7 +15,7 @@ use App\Models\Track;
 
 class TrackController extends Controller
 {
-    /**
+    /*
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
