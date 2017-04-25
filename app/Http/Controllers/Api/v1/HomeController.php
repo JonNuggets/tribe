@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Track;
 use App\Models\Album;
 use App\Models\Author;
 use App\Models\Photo;
 
-class AlbumController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,6 +43,36 @@ class AlbumController extends Controller
                         // 'photo' => $author->image,
                         ],
                     'cover' => $photo->url,
+                ];
+            }
+
+            $tracks = Track::all();
+
+            foreach($tracks as $track){
+
+                $author = $track->author;
+                $album = $track->album;
+                $albumPhoto = (!isset($album)) ? null : $album->photo;
+                $photoTrack = $track->photo;
+
+                $response['tracks'][] = [
+                    'id' => $track->id,
+                    'title' => $track->title,
+                    'duration' => $track->duration,
+                    'year' => $track->year,
+                    'hits' => $track->hits,
+                    'url' => $track->url,
+                    'author' => [
+                        'id' => $author->id,
+                        'nickname' => $author->nickname,
+                        // 'photo' => $author->image,
+                        ],
+                    'album' => (!isset($album)) ? null : [
+                        'id' => $album->id,
+                        'title' => $album->title,
+                        'cover' => $albumPhoto->url,
+                        ],
+                    'cover' => $photoTrack->url,
                 ];
             }
 

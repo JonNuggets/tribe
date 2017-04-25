@@ -63,7 +63,7 @@ class TrackController extends Controller
 				$track->photo()->associate($photo);
 
 				/* Track */
-				if (isset($request->album_id)) {
+				if (!empty($request->album_id)) {
 					$album = Album::find($request->album_id);
 					$destinationPath = $author->slug.'/'.$album->slug;
 				}

@@ -110,4 +110,5 @@ Route::get('admin/track_types/delete/{id}', ['as' => 'track_types.destroy', 'use
 Route::group(array('prefix' => 'api/v1'), function() {
         Route::resource('tracks', 'Api\v1\TrackController');
         Route::resource('albums', 'Api\v1\AlbumController');
+        Route::resource('home', 'Api\v1\HomeController');
 });

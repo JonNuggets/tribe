@@ -40,4 +40,12 @@ class Album extends Model
     {
         return $this->hasMany('App\Models\Track');
     }
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function author()
+    {
+        return $this->belongsTo('App\Models\Author', 'author_id');
+    }
 }

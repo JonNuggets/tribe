@@ -32,4 +32,14 @@ class Author extends Model
         return $this->hasMany('App\Models\Track');
     }
 
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function albums()
+    {
+        return $this->hasMany('App\Models\Album');
+    }
+
 }
