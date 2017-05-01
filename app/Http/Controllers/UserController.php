@@ -25,8 +25,8 @@ class UserController extends Controller
 {
     public function check (CheckUserRequest $request){
 
-		if (Auth::attempt(['email' => $request['username'], 'password' => $request['password']])) {
-			Auth::attempt(['email' => $request['username'], 'password' => $request['password']]);
+		if (Auth::attempt(['email' => $request['username'], 'password' => $request['password'], 'active' => 1])) {
+			Auth::attempt(['email' => $request['username'], 'password' => $request['password'], 'active' => 1]);
 			$stats = 'Ceci est un test';
 			return view('admin.home', compact('stats'));
 		}

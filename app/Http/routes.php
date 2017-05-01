@@ -107,8 +107,14 @@ Route::get('admin/track_types/delete/{id}', ['as' => 'track_types.destroy', 'use
 
 
 /* API REST */
-Route::group(array('prefix' => 'api/v1'), function() {
+Route::group(array('prefix' => 'api/v1', 'middleware' => ['web']), function() {
+        Route::post('auth/login', 'Api\v1\AuthController@login');
+		Route::post('auth/signup', 'Api\v1\AuthController@signup');
+});
+
+Route::group(array('prefix' => 'api/v1', 'middleware' => ['jwt.refresh']), function() {
         Route::resource('tracks', 'Api\v1\TrackController');
         Route::resource('albums', 'Api\v1\AlbumController');
+        Route::resource('albums.tracks', 'Api\v1\AlbumsTracksController');
         Route::resource('home', 'Api\v1\HomeController');
 });
